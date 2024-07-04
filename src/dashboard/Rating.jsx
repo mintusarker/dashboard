@@ -5,8 +5,8 @@ const Rating = () => {
   return (
     <div className="">
       <div className="mb-9">
-        <p className="font-semibold text-xs mb-2">Most Ordered Food</p>
-        <p className="text-xs">Adipiscing elit, sed do eiusmod tempor</p>
+        <p className="font-semibold text-xs mb-2">Your Rating</p>
+        <p className="text-xs">Lorem ipsum dolor sit amet, consectetur</p>
       </div>
 
 

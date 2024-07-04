@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { GoSearch } from "react-icons/go";
 import img1 from "../assets/Emoticon.png";
 import img2 from "../assets/Group 245.png";
@@ -7,7 +7,7 @@ import img4 from "../assets/Group 23 (2).png";
 import img5 from "../assets/Group 23 (1).png";
 import { HiChevronDown } from "react-icons/hi";
 import { CiBellOn } from "react-icons/ci";
-import { FaArrowUp } from "react-icons/fa";
+import { FaArrowUp, FaBell } from "react-icons/fa";
 import {
   BarChart,
   Bar,
@@ -174,6 +174,10 @@ const data4 = [
 ];
 
 const DashboardHome = () => {
+  //for dropdown menu
+  const [isOpen, setIsOpen] = useState(false);
+  const toggle =()=> setIsOpen(!isOpen)
+
   return (
     <div className="mb-20">
       <div className="flex flex-wrap items-center justify-between mx-12">
@@ -194,11 +198,26 @@ const DashboardHome = () => {
                 alt=""
                 className="w-8 h-8 p-2 rounded-full bg-[#FFE6CC]"
               />
-              <div className="flex items-center justify-center gap-1">
-                <button className="font-[400] text-[12px]">
-                  Delicious Burger
+
+              <div className="relative">
+                <button onClick={toggle} className="flex items-center justify-center gap-1">
+                  <p className="font-[400] text-[12px]">Delicious Burger</p>
+                  <HiChevronDown />
                 </button>
-                <HiChevronDown />
+
+                {isOpen && (
+                  <div className="absolute top-[40px] flex flex-col gap-3 items-center  bg-white shadow-md rounded-xl z-50 pb-6 px-16">
+                    <button className= "font-semibold flex justify-start gap-2 my-2 items-center"> <CiBellOn/> <p className="text-xs">Option</p> </button>
+                    <button className="font-semibold flex justify-start gap-2 items-center"> <CiBellOn/> <p className="text-xs">Option</p> </button>
+                    <button className="font-semibold flex justify-start gap-2 my-2 items-center"> <CiBellOn/> <p className="text-xs">Option</p> </button>
+                    <button className="font-semibold flex justify-start gap-2 items-center"> <CiBellOn/> <p className="text-xs">Option</p> </button>
+                    <button className="font-semibold flex justify-start gap-2 items-center"> <CiBellOn/> <p className="text-xs">Option</p> </button>
+                    <button className="font-semibold flex justify-start gap-2 items-center"> <CiBellOn/> <p className="text-xs">Option</p> </button>
+                    <button className="font-semibold flex justify-start gap-2 my-2 items-center"> <CiBellOn/> <p className="text-xs">Option</p> </button>
+                    <button className="font-semibold flex justify-start gap-2 items-center"> <CiBellOn/> <p className="text-xs">Option</p> </button>
+                   
+                  </div>
+                )}
               </div>
             </div>
 
@@ -310,11 +329,9 @@ const DashboardHome = () => {
         </div>
       </div>
 
-
       <div className="mx-16 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 gap-12">
-
         <div className="border-e-2 py-12">
-        <Rating></Rating>
+          <Rating></Rating>
         </div>
 
         <div className="w-auto border-e-2 py-12 px-9">

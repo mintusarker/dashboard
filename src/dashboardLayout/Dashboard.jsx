@@ -6,10 +6,14 @@ import { MdManageAccounts, MdOutlineTextsms, MdPayment } from "react-icons/md";
 import { CgMenuLeft } from "react-icons/cg";
 import { FcSettings } from "react-icons/fc";
 import { FiBarChart2 } from "react-icons/fi";
+import Navbar from "../navbar/Navbar";
 
 const Dashboard = () => {
   return (
     <div>
+      <div>
+        <Navbar></Navbar>
+      </div>
       <div className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content">
