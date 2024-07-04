@@ -1,25 +1,29 @@
-import React, { useCallback, useState } from "react";
+import React from "react";
 import { GoSearch } from "react-icons/go";
 import img1 from "../assets/Emoticon.png";
+import img2 from "../assets/Group 245.png";
+import img3 from "../assets/Group 23.png";
+import img4 from "../assets/Group 23 (2).png";
+import img5 from "../assets/Group 23 (1).png";
 import { HiChevronDown } from "react-icons/hi";
 import { CiBellOn } from "react-icons/ci";
 import { FaArrowUp } from "react-icons/fa";
-import Rechart from "./Rechart";
 import {
   BarChart,
   Bar,
   XAxis,
-  YAxis,
   CartesianGrid,
   Tooltip,
   Legend,
   ResponsiveContainer,
-  Sector,
   PieChart,
   Pie,
   Cell,
-  RadialBar,
+  LineChart,
+  YAxis,
+  Line,
 } from "recharts";
+import { FaArrowDown } from "react-icons/fa6";
 
 const data = [
   {
@@ -103,88 +107,73 @@ const data1 = [
 ];
 const COLORS = ["#8593ED", "#C7CEFF", "#5A6ACF"];
 
-// const renderActiveShape = (props) => {
-//   const RADIAN = Math.PI / 180;
-//   const {
-//     cx,
-//     cy,
-//     midAngle,
-//     innerRadius,
-//     outerRadius,
-//     startAngle,
-//     endAngle,
-//     fill,
-//     payload,
-//     percent,
-//     value,
-//   } = props;
-//   const sin = Math.sin(-RADIAN * midAngle);
-//   const cos = Math.cos(-RADIAN * midAngle);
-//   const sx = cx + (outerRadius + 10) * cos;
-//   const sy = cy + (outerRadius + 10) * sin;
-//   const mx = cx + (outerRadius + 30) * cos;
-//   const my = cy + (outerRadius + 30) * sin;
-//   const ex = mx + (cos >= 0 ? 1 : -1) * 22;
-//   const ey = my;
-//   const textAnchor = cos >= 0 ? "start" : "end";
+const data3 = [
+  {
+    id: "1",
+    img: img2,
+    name: "Fresh salad Bowl",
+    price: 45.0,
+  },
+  {
+    id: "2",
+    img: img3,
+    name: "Chicken Noodles",
+    price: 75.0,
+  },
+  {
+    id: "3",
+    img: img4,
+    name: "Smooths Fruits",
+    price: 45.0,
+  },
+  {
+    id: "4",
+    img: img5,
+    name: "Hot Chicken Wings",
+    price: 45.0,
+  },
+];
 
-//   return (
-//     <g>
-//       <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill}>
-//         {payload.name}
-//       </text>
-//       <Sector
-//         cx={cx}
-//         cy={cy}
-//         innerRadius={innerRadius}
-//         outerRadius={outerRadius}
-//         startAngle={startAngle}
-//         endAngle={endAngle}
-//         fill={fill}
-//       />
-//       <Sector
-//         cx={cx}
-//         cy={cy}
-//         startAngle={startAngle}
-//         endAngle={endAngle}
-//         innerRadius={outerRadius + 6}
-//         outerRadius={outerRadius + 10}
-//         fill={fill}
-//       />
-//       <path
-//         d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`}
-//         stroke={fill}
-//         fill="none"
-//       />
-//       <circle cx={ex} cy={ey} r={2} fill={fill} stroke="none" />
-//       <text
-//         x={ex + (cos >= 0 ? 1 : -1) * 12}
-//         y={ey}
-//         textAnchor={textAnchor}
-//         fill="#333"
-//       >{`PV ${value}`}</text>
-//       <text
-//         x={ex + (cos >= 0 ? 1 : -1) * 12}
-//         y={ey}
-//         dy={18}
-//         textAnchor={textAnchor}
-//         fill="#999"
-//       >
-//         {`(Rate ${(percent * 100).toFixed(2)}%)`}
-//       </text>
-//     </g>
-//   );
-// };
+const data4 = [
+  {
+    month: "01",
+    uv: 4000,
+    pv: 2400,
+    amt: 2400,
+  },
+  {
+    month: "02",
+    uv: 3000,
+    pv: 1398,
+    amt: 2210,
+  },
+  {
+    month: "03",
+    uv: 2000,
+    pv: 9800,
+    amt: 2290,
+  },
+  {
+    month: "04",
+    uv: 2780,
+    pv: 3908,
+    amt: 2000,
+  },
+  {
+    month: "05",
+    uv: 1890,
+    pv: 4800,
+    amt: 2181,
+  },
+  {
+    month: "06",
+    uv: 2390,
+    pv: 3800,
+    amt: 2500,
+  },
+];
 
 const DashboardHome = () => {
-  // const [activeIndex, setActiveIndex] = useState(0);
-  // const onPieEnter = useCallback(
-  //   (_, index) => {
-  //     setActiveIndex(index);
-  //   },
-  //   [setActiveIndex]
-  // );
-
   return (
     <div className="">
       <div className="flex flex-wrap items-center justify-between mx-12">
@@ -229,7 +218,7 @@ const DashboardHome = () => {
       </p>
 
       <div className="grid grid-cols-2 mx-16 divide-x-2">
-        <div className=""> 
+        <div className="">
           <div className="mt-6 flex flex-wrap justify-between">
             <div>
               <p className="text-xs font-semibold">Revenue</p>
@@ -281,9 +270,8 @@ const DashboardHome = () => {
           </div>
         </div>
 
-
         <div className="ml-12 px-9">
-        <div className="mt-6 flex flex-wrap items-center justify-between">
+          <div className="mt-6 flex flex-wrap items-center justify-between">
             <div>
               <p className="text-xs font-semibold">Order Time</p>
               <p className="text-xs">From 1-6 Dec, 2020</p>
@@ -314,6 +302,77 @@ const DashboardHome = () => {
               ))}
             </Pie>
           </PieChart>
+        </div>
+      </div>
+
+      <div className="mx-16 grid grid-cols-3 my-12 gap-12">
+        <div></div>
+        <div className="w-auto">
+          <div className="mb-9">
+            <p className="font-semibold text-xs mb-2">Most Ordered Food</p>
+            <p className="text-xs">Adipiscing elit, sed do eiusmod tempor</p>
+          </div>
+
+         <div className="mt-14">
+         {data3.map((data) => (
+            <div
+              key={data?.id}
+              className="flex items-center justify-between border-b py-7"
+            >
+              <div className="flex items-center gap-4">
+                <div>
+                  <img src={data?.img} alt="" />
+                </div>
+                <div className="text-xs font-normal">{data?.name}</div>
+              </div>
+              <div className="text-xs font-normal">IDR {data?.price}.000</div>
+            </div>
+          ))}
+         </div>
+        </div>
+
+        <div className="">
+          <div className="flex flex-wrap justify-between">
+            <div>
+              <p className="text-xs font-semibold">Order</p>
+              <h3 className="font-semibold my-2">2.568</h3>
+              <h4 className="flex items-center gap-1 text-xs mb-4">
+                <span className="flex items-center gap-2 text-red-700]">
+                  <FaArrowDown></FaArrowDown> 2.1%
+                </span>
+                <p>vs last week</p>
+              </h4>
+              <p className="text-xs">Sales from 1-12 Dec, 2020</p>
+            </div>
+            <div>
+              <button className="font-semibold text-sm w-28 rounded-sm bg-slate-100 h-8 shadow-sm shadow-slate-300 text-blue-400">
+                View Report
+              </button>
+            </div>
+          </div>
+
+          <div className="mt-7">
+            {/* <ResponsiveContainer width="100%" height="100%"> */}
+            <LineChart
+              width={362}
+              height={360}
+              data={data4}
+              margin={{
+                top: 5,
+                right: 30,
+                left: 2,
+                bottom: 5,
+              }}
+            >
+              <CartesianGrid strokeDasharray="2 2" />
+              <XAxis dataKey="month" />
+              <Tooltip />
+              <Legend />
+              <Line dataKey="pv" stroke="#8884d8" />
+              <Line dataKey="uv" stroke="#82ca9d" />
+            </LineChart>
+            {/* </ResponsiveContainer> */}
+          </div>
         </div>
       </div>
     </div>
