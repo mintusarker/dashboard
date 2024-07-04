@@ -32,29 +32,29 @@ const Dashboard = () => {
 
             <div className="w-full border bg-[#C8CBD9]"></div>
 
-            <div className="p-8 text-[#273240]">
-              <li className="mb-6 font-[400] text-[11px] leading-3 tracking-[1px]">MENU</li>
-              <li className=" rounded-md w-[200px] h-[42px]">
+            <div className="mx-auto text-[#273240]">
+              <li className="mb-6 mt-12 font-[400] text-[11px] leading-3 tracking-[1px]">MENU</li>
+              <li className=" rounded-md w-[200px] h-[42px] hover:bg-slate-300 hover:text-[#5A6ACF] px-2 pt-2">
                 <Link className="flex items-center gap-5">
             
                   <FiBarChart2 className="text-[#A6ABC8] w-[15px] h-[15px]"></FiBarChart2>
                   Dashboard
                 </Link>
               </li>
-              <li className="rounded-md w-[200px] h-[42px]">
+              <li className="rounded-md w-[200px] h-[42px]  hover:bg-slate-300 hover:text-[#5A6ACF] px-2 pt-2">
                 <Link className="flex items-center gap-5">
                   <FaCartPlus className="text-[#A6ABC8] w-[15px] h-[15px]"></FaCartPlus>
                   Food Order
                 </Link>
               </li>
-              <li className="rounded-md w-[200px] h-[42px]">
+              <li className="rounded-md w-[200px] h-[42px]  hover:bg-slate-300 hover:text-[#5A6ACF] px-2 pt-2">
                 <Link className="flex items-center gap-5">
                   <CgMenuLeft className="text-[#A6ABC8] w-[15px] h-[15px]"></CgMenuLeft>
                   Manage Menu
                 </Link>
               </li>
 
-              <li className="rounded-md w-[200px] h-[42px]">
+              <li className="rounded-md w-[200px] h-[42px]  hover:bg-slate-300 hover:text-[#5A6ACF] px-2 pt-2">
                 <Link className="flex items-center gap-5">
                   <MdOutlineTextsms className="text-[#A6ABC8] w-[15px] h-[15px]"></MdOutlineTextsms>
                   Customer Review
@@ -63,25 +63,25 @@ const Dashboard = () => {
 
               <li className="uppercase mt-10 mb-6 font-[400] text-[11px] leading-3 tracking-[1px]">Others</li>
 
-              <li className="rounded-md w-[200px] h-[42px]">
+              <li className="rounded-md w-[200px] h-[42px]  hover:bg-slate-300 hover:text-[#5A6ACF] px-2 pt-2">
                 <Link className="flex items-center gap-5">
                   <FcSettings className="text-[#A6ABC8] w-[15px] h-[15px]"></FcSettings>
                   settings
                 </Link>
               </li>
-              <li className="rounded-md w-[200px] h-[42px]">
+              <li className="rounded-md w-[200px] h-[42px]  hover:bg-slate-300 hover:text-[#5A6ACF] px-2 pt-2">
                 <Link className="flex items-center gap-5">
                   <MdPayment className="text-[#A6ABC8] w-[15px] h-[15px]"></MdPayment>
                   Payment
                 </Link>
               </li>
-              <li className="rounded-md w-[200px] h-[42px]">
+              <li className="rounded-md w-[200px] h-[42px]  hover:bg-slate-300 hover:text-[#5A6ACF] px-2 pt-2">
                 <Link className="flex items-center gap-5">
                   <MdManageAccounts className="text-[#A6ABC8] w-[15px] h-[15px]" />
                   Accounts
                 </Link>
               </li>
-              <li className="rounded-md w-[200px] h-[42px]">
+              <li className="rounded-md w-[200px] h-[42px]  hover:bg-slate-300 hover:text-[#5A6ACF] px-2 pt-2">
                 <Link className="flex items-center gap-5">
                   <BsExclamation className="text-slate-600 w-[15px] h-[15px] bg-[#A6ABC8] rounded"></BsExclamation>
                   Help

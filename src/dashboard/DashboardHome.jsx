@@ -20,10 +20,10 @@ import {
   Pie,
   Cell,
   LineChart,
-  YAxis,
   Line,
 } from "recharts";
 import { FaArrowDown } from "react-icons/fa6";
+import Rating from "./Rating";
 
 const data = [
   {
@@ -175,7 +175,7 @@ const data4 = [
 
 const DashboardHome = () => {
   return (
-    <div className="">
+    <div className="mb-20">
       <div className="flex flex-wrap items-center justify-between mx-12">
         <div className="flex items-center justify-between bg-[#F6F6FB] w-[625px] h-[32px] rounded-md px-4 my-6">
           <input
@@ -217,8 +217,8 @@ const DashboardHome = () => {
         Dashboard
       </p>
 
-      <div className="grid grid-cols-2 mx-16 divide-x-2">
-        <div className="">
+      <div className="flex flex-wrap mx-16 divide-x-2 border-b-2">
+        <div className="pb-12 flex-initial lg:w-[60%]">
           <div className="mt-6 flex flex-wrap justify-between">
             <div>
               <p className="text-xs font-semibold">Revenue</p>
@@ -238,39 +238,39 @@ const DashboardHome = () => {
             </div>
           </div>
 
-          <div className="">
-            {/* <ResponsiveContainer width="100%" height="100%"> */}
-            <BarChart
-              width={600}
-              height={300}
-              data={data}
-              margin={{
-                top: 60,
-                right: 30,
-                left: 20,
-                bottom: 5,
-              }}
-            >
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="date" />
-              <XAxis
-                dataKey="date"
-                axisLine={false}
-                tickLine={false}
-                interval={0}
-                height={1}
-                scale="band"
-              />
-              <Tooltip />
-              <Legend />
-              <Bar dataKey="pv" fill="#5A6ACF" />
-              <Bar dataKey="uv" fill="#E6E8EC" />
-            </BarChart>
-            {/* </ResponsiveContainer> */}
+          <div style={{ width: "100%", height: 300 }}>
+            <ResponsiveContainer>
+              <BarChart
+                width={600}
+                height={300}
+                data={data}
+                margin={{
+                  top: 60,
+                  right: 30,
+                  left: 20,
+                  bottom: 5,
+                }}
+              >
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="date" />
+                <XAxis
+                  dataKey="date"
+                  axisLine={false}
+                  tickLine={false}
+                  interval={0}
+                  height={1}
+                  scale="band"
+                />
+                <Tooltip />
+                <Legend />
+                <Bar dataKey="pv" fill="#5A6ACF" />
+                <Bar dataKey="uv" fill="#E6E8EC" />
+              </BarChart>
+            </ResponsiveContainer>
           </div>
         </div>
 
-        <div className="ml-12 px-9">
+        <div className="ml-[59px] pl-9 flex-initial lg:w-[30%]">
           <div className="mt-6 flex flex-wrap items-center justify-between">
             <div>
               <p className="text-xs font-semibold">Order Time</p>
@@ -282,67 +282,77 @@ const DashboardHome = () => {
               </button>
             </div>
           </div>
-          <PieChart width={300} height={400}>
-            <Pie
-              data={data1}
-              cx={200}
-              cy={200}
-              innerRadius={60}
-              outerRadius={80}
-              fill="#8884d8"
-              paddingAngle={0}
-              dataKey="value"
-            >
-              <Legend />
-              {data.map((entry, index) => (
-                <Cell
-                  key={`cell-${index}`}
-                  fill={COLORS[index % COLORS.length]}
-                />
-              ))}
-            </Pie>
-          </PieChart>
+
+          <div style={{ width: "100%", height: 300 }}>
+            <ResponsiveContainer>
+              <PieChart width={300} height={300}>
+                <Pie
+                  data={data1}
+                  cx={150}
+                  cy={200}
+                  innerRadius={60}
+                  outerRadius={80}
+                  fill="#8884d8"
+                  paddingAngle={0}
+                  dataKey="value"
+                >
+                  <Legend />
+                  {data.map((entry, index) => (
+                    <Cell
+                      key={`cell-${index}`}
+                      fill={COLORS[index % COLORS.length]}
+                    />
+                  ))}
+                </Pie>
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
         </div>
       </div>
 
-      <div className="mx-16 grid grid-cols-3 my-12 gap-12">
-        <div></div>
-        <div className="w-auto">
+
+      <div className="mx-16 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 gap-12">
+
+        <div className="border-e-2 py-12">
+        <Rating></Rating>
+        </div>
+
+        <div className="w-auto border-e-2 py-12 px-9">
           <div className="mb-9">
             <p className="font-semibold text-xs mb-2">Most Ordered Food</p>
             <p className="text-xs">Adipiscing elit, sed do eiusmod tempor</p>
           </div>
 
-         <div className="mt-14">
-         {data3.map((data) => (
-            <div
-              key={data?.id}
-              className="flex items-center justify-between border-b py-7"
-            >
-              <div className="flex items-center gap-4">
-                <div>
-                  <img src={data?.img} alt="" />
+          <div className="mt-14">
+            {data3.map((data) => (
+              <div
+                key={data?.id}
+                className="flex items-center justify-between border-b py-7"
+              >
+                <div className="flex items-center gap-4">
+                  <div>
+                    <img src={data?.img} alt="" />
+                  </div>
+                  <div className="text-xs font-normal">{data?.name}</div>
                 </div>
-                <div className="text-xs font-normal">{data?.name}</div>
+                <div className="text-xs font-normal">IDR {data?.price}.000</div>
               </div>
-              <div className="text-xs font-normal">IDR {data?.price}.000</div>
-            </div>
-          ))}
-         </div>
+            ))}
+          </div>
         </div>
 
-        <div className="">
+        <div className="py-12">
           <div className="flex flex-wrap justify-between">
             <div>
               <p className="text-xs font-semibold">Order</p>
               <h3 className="font-semibold my-2">2.568</h3>
               <h4 className="flex items-center gap-1 text-xs mb-4">
-                <span className="flex items-center gap-2 text-red-700]">
+                <span className="flex items-center gap-2 text-red-600">
                   <FaArrowDown></FaArrowDown> 2.1%
                 </span>
                 <p>vs last week</p>
               </h4>
-              <p className="text-xs">Sales from 1-12 Dec, 2020</p>
+              <p className="text-xs">Sales from 1-6 Dec, 2020</p>
             </div>
             <div>
               <button className="font-semibold text-sm w-28 rounded-sm bg-slate-100 h-8 shadow-sm shadow-slate-300 text-blue-400">
@@ -351,27 +361,27 @@ const DashboardHome = () => {
             </div>
           </div>
 
-          <div className="mt-7">
-            {/* <ResponsiveContainer width="100%" height="100%"> */}
-            <LineChart
-              width={362}
-              height={360}
-              data={data4}
-              margin={{
-                top: 5,
-                right: 30,
-                left: 2,
-                bottom: 5,
-              }}
-            >
-              <CartesianGrid strokeDasharray="2 2" />
-              <XAxis dataKey="month" />
-              <Tooltip />
-              <Legend />
-              <Line dataKey="pv" stroke="#8884d8" />
-              <Line dataKey="uv" stroke="#82ca9d" />
-            </LineChart>
-            {/* </ResponsiveContainer> */}
+          <div className="mt-7" style={{ width: "100%", height: 300 }}>
+            <ResponsiveContainer>
+              <LineChart
+                width={400}
+                height={300}
+                data={data4}
+                margin={{
+                  top: 5,
+                  right: 30,
+                  left: 20,
+                  bottom: 5,
+                }}
+              >
+                <CartesianGrid strokeDasharray="2 2" />
+                <XAxis dataKey="month" />
+                <Tooltip />
+                <Legend />
+                <Line dataKey="pv" stroke="#8884d8" />
+                <Line dataKey="uv" stroke="#82ca9d" />
+              </LineChart>
+            </ResponsiveContainer>
           </div>
         </div>
       </div>
