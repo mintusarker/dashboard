@@ -31,16 +31,19 @@ const Dashboard = () => {
 
             <li className="flex uppercase items-center p-7 gap-4">
               <FaGoogle className="bg-[#5A67BA] rounded-full w-[24px] h-[24px] p-[6px]"></FaGoogle>
-              <p className="text-[#5A67BA] font-[700] text-[11px] tracking-[0.5px]">goodfood</p>
+              <p className="text-[#5A67BA] font-[700] text-[11px] tracking-[0.5px]">
+                goodfood
+              </p>
             </li>
 
             <div className="w-full border bg-[#C8CBD9]"></div>
 
             <div className="mx-auto text-[#273240]">
-              <li className="mb-6 mt-12 font-[400] text-[11px] leading-3 tracking-[1px]">MENU</li>
+              <li className="mb-6 mt-12 font-[400] text-[11px] leading-3 tracking-[1px]">
+                MENU
+              </li>
               <li className=" rounded-md w-[200px] h-[42px] hover:bg-slate-300 hover:text-[#5A6ACF] px-2 pt-2">
-                <Link className="flex items-center gap-5">
-            
+                <Link className="flex items-center gap-5" to="/">
                   <FiBarChart2 className="text-[#A6ABC8] w-[15px] h-[15px]"></FiBarChart2>
                   Dashboard
                 </Link>
@@ -65,7 +68,9 @@ const Dashboard = () => {
                 </Link>
               </li>
 
-              <li className="uppercase mt-10 mb-6 font-[400] text-[11px] leading-3 tracking-[1px]">Others</li>
+              <li className="uppercase mt-10 mb-6 font-[400] text-[11px] leading-3 tracking-[1px]">
+                Others
+              </li>
 
               <li className="rounded-md w-[200px] h-[42px]  hover:bg-slate-300 hover:text-[#5A6ACF] px-2 pt-2">
                 <Link className="flex items-center gap-5">

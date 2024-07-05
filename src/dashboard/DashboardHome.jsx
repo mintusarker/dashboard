@@ -25,6 +25,7 @@ import {
 import { FaArrowDown } from "react-icons/fa6";
 import Rating from "./Rating";
 
+//bar chart data
 const data = [
   {
     date: "01",
@@ -100,13 +101,14 @@ const data = [
   },
 ];
 
+//pie chart data
 const data1 = [
-  { name: "Group A", value: 400 },
-  { name: "Group B", value: 300 },
-  { name: "Group C", value: 300 },
+  { name: "Afternoon", value: 40, color: "#5A6ACF" },
+  { name: "Evening", value: 32, color: "#C7CEFF" },
+  { name: "Morning", value: 28, color: "#8593ED" },
 ];
-const COLORS = ["#8593ED", "#C7CEFF", "#5A6ACF"];
 
+//most ordered food data
 const data3 = [
   {
     id: "1",
@@ -134,41 +136,42 @@ const data3 = [
   },
 ];
 
+//line chart data
 const data4 = [
   {
     month: "01",
-    uv: 4000,
-    pv: 2400,
+    "last 6 days": 2000,
+    "Last Week": 2400,
     amt: 2400,
   },
   {
     month: "02",
-    uv: 3000,
-    pv: 1398,
+    "last 6 days": 1300,
+    "Last Week": 3000,
     amt: 2210,
   },
   {
     month: "03",
-    uv: 2000,
-    pv: 9800,
+    "last 6 days": 2600,
+    "Last Week": 2000,
     amt: 2290,
   },
   {
     month: "04",
-    uv: 2780,
-    pv: 3908,
+    "last 6 days": 1500,
+    "Last Week": 2780,
     amt: 2000,
   },
   {
     month: "05",
-    uv: 1890,
-    pv: 4800,
+    "last 6 days": 4000,
+    "Last Week": 1890,
     amt: 2181,
   },
   {
     month: "06",
-    uv: 2390,
-    pv: 3800,
+    "last 6 days": 2000,
+    "Last Week": 2390,
     amt: 2500,
   },
 ];
@@ -176,11 +179,12 @@ const data4 = [
 const DashboardHome = () => {
   //for dropdown menu
   const [isOpen, setIsOpen] = useState(false);
-  const toggle =()=> setIsOpen(!isOpen)
+  const toggle = () => setIsOpen(!isOpen);
 
   return (
     <div className="mb-20">
       <div className="flex flex-wrap items-center justify-between mx-12">
+        {/* search area */}
         <div className="flex items-center justify-between bg-[#F6F6FB] w-[625px] h-[32px] rounded-md px-4 my-6">
           <input
             className=" h-[32px] bg-[#F6F6FB] outline-none"
@@ -199,23 +203,41 @@ const DashboardHome = () => {
                 className="w-8 h-8 p-2 rounded-full bg-[#FFE6CC]"
               />
 
+              {/* dropdown button */}
               <div className="relative">
-                <button onClick={toggle} className="flex items-center justify-center gap-1">
+                <button
+                  onClick={toggle}
+                  className="flex items-center justify-center gap-1"
+                >
                   <p className="font-[400] text-[12px]">Delicious Burger</p>
                   <HiChevronDown />
                 </button>
-
                 {isOpen && (
                   <div className="absolute top-[40px] flex flex-col gap-3 items-center  bg-white shadow-md rounded-xl z-50 pb-6 px-16">
-                    <button className= "font-semibold flex justify-start gap-2 my-2 items-center"> <CiBellOn/> <p className="text-xs">Option</p> </button>
-                    <button className="font-semibold flex justify-start gap-2 items-center"> <CiBellOn/> <p className="text-xs">Option</p> </button>
-                    <button className="font-semibold flex justify-start gap-2 my-2 items-center"> <CiBellOn/> <p className="text-xs">Option</p> </button>
-                    <button className="font-semibold flex justify-start gap-2 items-center"> <CiBellOn/> <p className="text-xs">Option</p> </button>
-                    <button className="font-semibold flex justify-start gap-2 items-center"> <CiBellOn/> <p className="text-xs">Option</p> </button>
-                    <button className="font-semibold flex justify-start gap-2 items-center"> <CiBellOn/> <p className="text-xs">Option</p> </button>
-                    <button className="font-semibold flex justify-start gap-2 my-2 items-center"> <CiBellOn/> <p className="text-xs">Option</p> </button>
-                    <button className="font-semibold flex justify-start gap-2 items-center"> <CiBellOn/> <p className="text-xs">Option</p> </button>
-                   
+                    <button className="font-semibold flex justify-start gap-2 my-2 items-center">
+                      <CiBellOn /> <p className="text-xs">Option</p>
+                    </button>
+                    <button className="font-semibold flex justify-start gap-2 items-center">
+                      <CiBellOn /> <p className="text-xs">Option</p>
+                    </button>
+                    <button className="font-semibold flex justify-start gap-2 my-2 items-center">
+                      <CiBellOn /> <p className="text-xs">Option</p>
+                    </button>
+                    <button className="font-semibold flex justify-start gap-2 items-center">
+                      <CiBellOn /> <p className="text-xs">Option</p>
+                    </button>
+                    <button className="font-semibold flex justify-start gap-2 items-center">
+                      <CiBellOn /> <p className="text-xs">Option</p>
+                    </button>
+                    <button className="font-semibold flex justify-start gap-2 items-center">
+                      <CiBellOn /> <p className="text-xs">Option</p>
+                    </button>
+                    <button className="font-semibold flex justify-start gap-2 my-2 items-center">
+                      <CiBellOn /> <p className="text-xs">Option</p>
+                    </button>
+                    <button className="font-semibold flex justify-start gap-2 items-center">
+                      <CiBellOn /> <p className="text-xs">Option</p>
+                    </button>
                   </div>
                 )}
               </div>
@@ -236,8 +258,9 @@ const DashboardHome = () => {
         Dashboard
       </p>
 
+      {/* first part */}
       <div className="flex flex-wrap mx-16 divide-x-2 border-b-2">
-        <div className="pb-12 flex-initial lg:w-[60%]">
+        <div className="pb-12 flex-initial w-[60%]">
           <div className="mt-6 flex flex-wrap justify-between">
             <div>
               <p className="text-xs font-semibold">Revenue</p>
@@ -257,6 +280,7 @@ const DashboardHome = () => {
             </div>
           </div>
 
+          {/* bar chart */}
           <div style={{ width: "100%", height: 300 }}>
             <ResponsiveContainer>
               <BarChart
@@ -266,7 +290,7 @@ const DashboardHome = () => {
                 margin={{
                   top: 60,
                   right: 30,
-                  left: 20,
+                  left: 5,
                   bottom: 5,
                 }}
               >
@@ -281,7 +305,7 @@ const DashboardHome = () => {
                   scale="band"
                 />
                 <Tooltip />
-                <Legend />
+                <Legend width={300} />
                 <Bar dataKey="pv" fill="#5A6ACF" />
                 <Bar dataKey="uv" fill="#E6E8EC" />
               </BarChart>
@@ -289,25 +313,28 @@ const DashboardHome = () => {
           </div>
         </div>
 
-        <div className="ml-[59px] pl-9 flex-initial lg:w-[30%]">
+        {/* second part */}
+        <div className="lg:ml-[59px] lg:pl-9 pl-3 flex-initial lg:w-[30%]">
           <div className="mt-6 flex flex-wrap items-center justify-between">
             <div>
-              <p className="text-xs font-semibold">Order Time</p>
+              <p className="text-xs font-semibold mb-2">Order Time</p>
               <p className="text-xs">From 1-6 Dec, 2020</p>
             </div>
-            <div>
-              <button className="font-semibold text-sm w-28 rounded-sm bg-slate-100 h-8 shadow-sm shadow-slate-300 text-blue-400">
-                View Report
-              </button>
-            </div>
-          </div>
 
-          <div style={{ width: "100%", height: 300 }}>
+            <button className="font-semibold text-sm w-28 rounded-sm bg-slate-100 h-8 shadow-sm shadow-slate-300 text-blue-400">
+              View Report
+            </button>
+          </div>
+          {/* pie chart */}
+          <div className="relative" style={{ width: "100%", height: 300 }}>
             <ResponsiveContainer>
               <PieChart width={300} height={300}>
+                <Tooltip
+                  contentStyle={{ background: "white", borderRadius: "5px" }}
+                />
                 <Pie
                   data={data1}
-                  cx={150}
+                  cx={130}
                   cy={200}
                   innerRadius={60}
                   outerRadius={80}
@@ -315,26 +342,49 @@ const DashboardHome = () => {
                   paddingAngle={0}
                   dataKey="value"
                 >
-                  <Legend />
-                  {data.map((entry, index) => (
-                    <Cell
-                      key={`cell-${index}`}
-                      fill={COLORS[index % COLORS.length]}
-                    />
+                  {data1.map((item) => (
+                    <Cell key={item.name} fill={item.color} />
                   ))}
                 </Pie>
               </PieChart>
             </ResponsiveContainer>
+
+            <div className="w-36 h-28 bg-[#37375C] rounded-md absolute top-20 right-7 opacity-80 text-white flex flex-col justify-center  items-start pl-4">
+              <p className="text-sm">Afternoon</p>
+              <p className="text-xs text-slate-500 my-1">1pm - 4pm</p>
+              <p className="text-sm">1.890 orders</p>
+            </div>
+          </div>
+          <div className="flex items-center justify-between mt-6">
+            {data1.map((item) => (
+              <div
+                className=" flex flex-col items-center justify-center"
+                key={item.name}
+              >
+                <div className="flex items-center gap-2">
+                  <div
+                    className="w-2 h-2 rounded-full"
+                    style={{ backgroundColor: item.color }}
+                  />
+                  <span className="text-xs font-medium">{item.name}</span>
+                </div>
+                <span>{item.value}%</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
 
+      {/* third part */}
       <div className="mx-16 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 gap-12">
+        
+        {/* customer rating */}
         <div className="border-e-2 py-12">
           <Rating></Rating>
         </div>
 
-        <div className="w-auto border-e-2 py-12 px-9">
+        {/* most ordered food */}
+        <div className="w-auto border-e-2 py-12 pl-1 pe-12">
           <div className="mb-9">
             <p className="font-semibold text-xs mb-2">Most Ordered Food</p>
             <p className="text-xs">Adipiscing elit, sed do eiusmod tempor</p>
@@ -358,7 +408,8 @@ const DashboardHome = () => {
           </div>
         </div>
 
-        <div className="py-12">
+        {/* last part */}
+        <div className="pt-12">
           <div className="flex flex-wrap justify-between">
             <div>
               <p className="text-xs font-semibold">Order</p>
@@ -378,11 +429,12 @@ const DashboardHome = () => {
             </div>
           </div>
 
+          {/* line chart */}
           <div className="mt-7" style={{ width: "100%", height: 300 }}>
             <ResponsiveContainer>
               <LineChart
                 width={400}
-                height={300}
+                // height={200}
                 data={data4}
                 margin={{
                   top: 5,
@@ -395,8 +447,8 @@ const DashboardHome = () => {
                 <XAxis dataKey="month" />
                 <Tooltip />
                 <Legend />
-                <Line dataKey="pv" stroke="#8884d8" />
-                <Line dataKey="uv" stroke="#82ca9d" />
+                <Line dataKey="last 6 days" stroke="#5A6ACF" />
+                <Line dataKey="Last Week" stroke="#E6E8EC" />
               </LineChart>
             </ResponsiveContainer>
           </div>
