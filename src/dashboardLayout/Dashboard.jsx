@@ -14,7 +14,7 @@ const Dashboard = () => {
       <div>
         <Navbar></Navbar>
       </div>
-      <div className="drawer lg:drawer-open">
+      <div className="drawer lg:drawer-open md:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content">
           {/* outlet */}

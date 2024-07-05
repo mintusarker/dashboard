@@ -3,7 +3,7 @@ import React from "react";
 const Navbar = () => {
   return (
     <div>
-      <div className="navbar relative lg:px-10 md:px-6 mx-auto bg-gradient-to-t to-gray-600 from-blue-900 text-white justify-between lg:hidden">
+      <div className="navbar relative lg:px-10 md:px-6 mx-auto bg-gradient-to-t to-gray-600 from-blue-900 text-white justify-between lg:hidden md:hidden">
         <div className="navbar-start">
           <div className="dropdown">
           <label

@@ -260,7 +260,7 @@ const DashboardHome = () => {
 
       {/* first part */}
       <div className="flex flex-wrap mx-16 divide-x-2 border-b-2">
-        <div className="pb-12 flex-initial w-[60%]">
+        <div className="pb-12 flex-initial w-full lg:w-[60%]">
           <div className="mt-6 flex flex-wrap justify-between">
             <div>
               <p className="text-xs font-semibold">Revenue</p>
@@ -376,7 +376,7 @@ const DashboardHome = () => {
       </div>
 
       {/* third part */}
-      <div className="mx-16 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 gap-12">
+      <div className="mx-16 grid lg:grid-cols-3 md:grid-cols-1 sm:grid-cols-1 grid-cols-1 gap-12">
         
         {/* customer rating */}
         <div className="border-e-2 py-12">
