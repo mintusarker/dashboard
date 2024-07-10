@@ -7,7 +7,7 @@ import img4 from "../assets/Group 23 (2).png";
 import img5 from "../assets/Group 23 (1).png";
 import { HiChevronDown } from "react-icons/hi";
 import { CiBellOn } from "react-icons/ci";
-import { FaArrowUp, FaBell } from "react-icons/fa";
+import { FaArrowUp } from "react-icons/fa";
 import {
   BarChart,
   Bar,
@@ -152,7 +152,7 @@ const data4 = [
   },
   {
     month: "03",
-    "last 6 days": 2600,
+    "last 6 days": 3400,
     "Last Week": 2000,
     amt: 2290,
   },
@@ -164,8 +164,8 @@ const data4 = [
   },
   {
     month: "05",
-    "last 6 days": 4000,
-    "Last Week": 1890,
+    "last 6 days": 3000,
+    "Last Week": 4500,
     amt: 2181,
   },
   {
@@ -183,11 +183,11 @@ const DashboardHome = () => {
 
   return (
     <div className="mb-20">
-      <div className="flex flex-wrap items-center justify-between mx-12">
+      <div className="flex flex-wrap items-center justify-between lg:mx-12 md:mx-12 mx-4">
         {/* search area */}
         <div className="flex items-center justify-between bg-[#F6F6FB] w-[625px] h-[32px] rounded-md px-4 my-6">
           <input
-            className=" h-[32px] bg-[#F6F6FB] outline-none"
+            className="w-full h-[32px] bg-[#F6F6FB] outline-none"
             placeholder="search"
             type="text"
           />
@@ -213,7 +213,7 @@ const DashboardHome = () => {
                   <HiChevronDown />
                 </button>
                 {isOpen && (
-                  <div className="absolute top-[40px] flex flex-col gap-3 items-center  bg-white shadow-md rounded-xl z-50 pb-6 px-16">
+                  <div className="absolute top-[28px] flex flex-col gap-3 items-center  bg-white shadow-md rounded-xl z-50 pb-6 px-16">
                     <button className="font-semibold flex justify-start gap-2 my-2 items-center">
                       <CiBellOn /> <p className="text-xs">Option</p>
                     </button>
@@ -248,19 +248,17 @@ const DashboardHome = () => {
               <p className="w-[6px] h-[6px] bg-[#EC5252] rounded-full relative -top-5 -right-3"></p>
             </div>
           </div>
-
-          <div></div>
         </div>
       </div>
-      <div className="w-full border bg-[#C8CBD9]"></div>
+      <div className="w-full mt-3 lg:mt-0 border bg-[#C8CBD9]"></div>
 
-      <p className="w-24 h-6 mt-10 mx-16 font-medium leading-5 tracking-[0.5px]">
+      <p className="w-24 h-6 mt-10 lg:mx-16 md:mx-14 mx-8 font-medium leading-5 tracking-[0.5px]">
         Dashboard
       </p>
 
       {/* first part */}
-      <div className="flex flex-wrap mx-16 divide-x-2 border-b-2">
-        <div className="pb-12 flex-initial w-full lg:w-[60%]">
+      <div className="flex flex-wrap lg:mx-16 md:mx-14 mx-8 lg:divide-x-2 lg:border-b-2">
+        <div className="pb-12 flex-initial w-full lg:w-[60%] border-b-2 lg:border-0">
           <div className="mt-6 flex flex-wrap justify-between">
             <div>
               <p className="text-xs font-semibold">Revenue</p>
@@ -314,8 +312,8 @@ const DashboardHome = () => {
         </div>
 
         {/* second part */}
-        <div className="lg:ml-[59px] lg:pl-9 pl-3 flex-initial lg:w-[30%]">
-          <div className="mt-6 flex flex-wrap items-center justify-between">
+        <div className="lg:ml-[59px] lg:pl-9 pl-3 flex-initial lg:w-[30%] border-b-2 lg:border-0 w-full pb-6 lg:pb-0">
+          <div className="mt-6 flex flex-wrap items-center justify-between sm:gap-16">
             <div>
               <p className="text-xs font-semibold mb-2">Order Time</p>
               <p className="text-xs">From 1-6 Dec, 2020</p>
@@ -326,7 +324,8 @@ const DashboardHome = () => {
             </button>
           </div>
           {/* pie chart */}
-          <div className="relative" style={{ width: "100%", height: 300 }}>
+         <div className="relative">
+         <div style={{ width: "100%", height: 300 }}>
             <ResponsiveContainer>
               <PieChart width={300} height={300}>
                 <Tooltip
@@ -348,14 +347,14 @@ const DashboardHome = () => {
                 </Pie>
               </PieChart>
             </ResponsiveContainer>
-
-            <div className="w-36 h-28 bg-[#37375C] rounded-md absolute top-20 right-7 opacity-80 text-white flex flex-col justify-center  items-start pl-4">
+          </div>
+            <div className="w-36 h-28 bg-[#37375C] rounded-md relative -top-52 -right-40 opacity-80 text-white flex flex-col justify-center  items-start pl-4">
               <p className="text-sm">Afternoon</p>
               <p className="text-xs text-slate-500 my-1">1pm - 4pm</p>
               <p className="text-sm">1.890 orders</p>
             </div>
-          </div>
-          <div className="flex items-center justify-between mt-6">
+         </div>
+          <div className="flex items-center justify-between -mt-20">
             {data1.map((item) => (
               <div
                 className=" flex flex-col items-center justify-center"
@@ -376,15 +375,15 @@ const DashboardHome = () => {
       </div>
 
       {/* third part */}
-      <div className="mx-16 grid lg:grid-cols-3 md:grid-cols-1 sm:grid-cols-1 grid-cols-1 gap-12">
+      <div className="lg:mx-16 md:mx-14 mx-8 grid lg:grid-cols-3 md:grid-cols-1 sm:grid-cols-1 grid-cols-1 gap-12">
         
         {/* customer rating */}
-        <div className="border-e-2 py-12">
+        <div className="lg:border-e-2 py-12 border-b-2 lg:border-0">
           <Rating></Rating>
         </div>
 
         {/* most ordered food */}
-        <div className="w-auto border-e-2 py-12 pl-1 pe-12">
+        <div className="w-auto lg:border-e-2 py-12 pl-1 pe-12 border-b-2 lg:border-0">
           <div className="mb-9">
             <p className="font-semibold text-xs mb-2">Most Ordered Food</p>
             <p className="text-xs">Adipiscing elit, sed do eiusmod tempor</p>
