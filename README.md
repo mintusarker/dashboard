@@ -1,8 +1,13 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- Use tailwind CSS and custom CSS.
+- Create different types of rechats like Bar chart, Pie chart, Line chart by using fake data.
+- Responsive for all kinds of devices.
+- Create a dashboard layout.
+- Implement routing system.
+- Deploy in Netlifly
+- And so on….
 
-Currently, two official plugins are available:
+Live link: https://jocular-puffpuff-552193.netlify.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Github code Link : https://github.com/mintusarker/dashboard
+
